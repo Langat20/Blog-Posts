@@ -82,3 +82,26 @@ def viewcomment():
 
 
 
+@main.route('/blogupdate/', methods = ["GET","POST"])
+@login_required
+def blogupdate():
+    # blog = Blog.query.filter_by(id).first()
+    # if blog is None:
+    #     abort(404)
+    
+    form = UpdateBlog()
+
+    if form.validate_on_submit():
+        description = form.description.data
+
+        blog = Blog(description=description)
+        db.session.add(blog)
+        db.session.commit()
+
+        return redirect(url_for('.homepage'))
+
+    return render_template('blogupdate.html',form =form)
+
+
+
+
