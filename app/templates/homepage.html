@@ -1,0 +1,36 @@
+{% extends 'base.html'%}
+
+{% block styles%}
+    {{ super() }}
+    <link rel="stylesheet" href="{{url_for('static',filename='css/home.css')}}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <a href="/blog/"> <input type="button" value="Add blog"> </a>
+
+    <div class="row">
+        {% for blogs in blog %}
+        <div class="col-md-6">
+            <div class="thumbnail">
+                <h3>Blog Title:{{blogs.title }}</h3>
+                <h4>Blog Description</h4>
+                <p>{{blogs.description}}</p>
+                <h4>Posted by:{{current_user.username}} </h4>
+                <h4>posted on:{{blogs.date}}</h4>
+                
+                <!-- <a href="/blogupdate/"><input type="button" value="Edit Blog"></a> -->
+                
+                <a class="first" href="{{url_for('main.blogupdate')}}">Edit Blog</a>
+                
+                <a href="/commentform/">Comment</a>
+                <a href="/commentview/">See Comments</a>
+
+
+              
+                </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
