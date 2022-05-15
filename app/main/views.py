@@ -45,5 +45,15 @@ def postblog():
     return render_template('blog.html', blog_form= blog_form)
 
 
+@main.route('/homepage')
+def homepage():
+
+    '''
+    View root page function that returns the index page and its data
+    '''
+    blog = Blog.query.all()
+    return render_template('homepage.html', blog=blog)
+
+
 
 
