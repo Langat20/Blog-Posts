@@ -1,0 +1,42 @@
+{% extends 'base.html'%}
+{% import 'bootstrap/wtf.html' as wtf%}
+
+{% block styles%}
+    {{ super() }}
+    <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid home  p-5">
+    <h1>Welcome to BlogPost.
+        Post and view blogs here
+        
+</h1>
+<a href="/blog/"> <input type="button" value="Add blog"> </a>
+</div>
+<div class="container">
+    <div class="row">
+        <!-- <div class="col-md-z"> </div> -->
+        <div class="col-md-6">
+            
+            
+            {% for quote in quotes%}
+            <h3>Quote</h3>
+                <p>{{quote.quote}}</p>
+                <h5> Author: {{quote.author}}</h5>
+            {% endfor %}
+        </div>
+        <div class="col-md-5 form">
+        {% for message in get_flashed_messages() %}
+        <div class="alert alert-danger">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {{ message }}
+        </div>
+      {% endfor %}
+            <h3>Subscribe</h3>
+            {{wtf.quick_form(subform)}}
+        </div>
+    </div>
+</div>
+
+{% endblock%}
