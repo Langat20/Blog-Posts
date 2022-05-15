@@ -55,5 +55,18 @@ def homepage():
     return render_template('homepage.html', blog=blog)
 
 
+@main.route('/commentform/', methods = ["GET","POST"])
+@login_required
+def comment():
+    form = CommentForm()
+    if form.validate_on_submit():
+        comment = Comments(comment=form.comment.data, dateposted=form.dateposted.data)
+        db.session.add(comment)
+        db.session.commit()
+        return redirect(url_for('.homepage'))
+
+    return render_template('commentform.html',form= form)
+
+
 
 
