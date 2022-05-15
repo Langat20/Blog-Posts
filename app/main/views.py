@@ -32,3 +32,18 @@ def index():
 
 
 
+@main.route('/blog/', methods = ["GET","POST"])
+@login_required
+def postblog():
+    blog_form = BlogForm()
+    if blog_form.validate_on_submit():
+        blog = Blog(title=blog_form.title.data, description=blog_form.description.data, date=blog_form.date.data)
+        db.session.add(blog)
+        db.session.commit()
+        return redirect(url_for('.homepage'))
+
+    return render_template('blog.html', blog_form= blog_form)
+
+
+
+
