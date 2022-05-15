@@ -72,5 +72,53 @@ class Blog(db.Model):
         return f'User {self.name}'
 
 
+class Comments(db.Model):
+    __tablename__ = 'comments'
+    id = db.Column(db.Integer, primary_key=True)
+    comment = db.Column(db.String(255))
+    # madeby = db.Column(db.String(255))
+    dateposted = db.Column(db.Date)
+    blog_id = db.Column(db.Integer, db.ForeignKey("blogs.id"))
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
+
+
+    def save_comments(self):
+        db.session.add(self)
+        db.session.commit()
+
+    @classmethod
+    def get_comments(cls, id):
+        pitches= Comments.query.filter_by(id=id).all()
+        return pitches
+
+    def __repr__(self):
+        return f'User {self.name}'
+
+
+class Subscribe(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    
+    email = db.Column(db.String(255),unique = True,index = True)
+
+
+    def save_subscriber(self):
+        db.session.add(self)
+        db.session.commit()
+
+    
+
+    @classmethod
+    def get_subscriber(cls, id):
+        pitches= Subscribe.query.filter_by(id=id).all()
+        return pitches
+
+    def __repr__(self):
+        return f'User {self.name}'
+
+class Quote:
+    def __init__(self,author,quote):
+        self.author = author
+        self.quote = quote
+
 
 
