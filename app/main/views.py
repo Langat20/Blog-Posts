@@ -134,4 +134,3 @@ def update_profile(uname):
 
     return render_template('profile/update.html',form =form)
 
-
