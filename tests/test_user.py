@@ -18,8 +18,16 @@ class UserTest(unittest.TestCase):
 
 
 
+class TestComments(unittest.TestCase):
+    def setUp(self):
+        self.comments = Comments(comment='We are safe')
+    
+    def tearDown(self):
+        Comments.query.delete()
 
-
+    def test_save_comment(self):
+        self.new_comment.save_comments()
+        self.assertTrue(len(Comments.query.all())>0)
 
 
 
