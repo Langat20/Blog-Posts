@@ -24,3 +24,11 @@ class BlogForm(FlaskForm):
     submit = SubmitField('Post')
 
 
+class CommentForm(FlaskForm):
+    comment = TextAreaField('Post your Comment ',validators=[DataRequired()])
+    # madeby = StringField('Made By: ',validators = [DataRequired()])
+    dateposted = DateField('Posting Date', validators=[DataRequired()])
+    submit = SubmitField('Add Comment')
+
+
+
