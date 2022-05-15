@@ -30,5 +30,19 @@ class TestComments(unittest.TestCase):
         self.assertTrue(len(Comments.query.all())>0)
 
 
+class TestBlog(unittest.TestCase):
+    def setUp(self):
+        self.blog = Blog(comment='We are safe')
+    
+    def tearDown(self):
+        Blog.query.delete()
+
+    def test_save_blog(self):
+        self.new_comment.save_blogs()
+        self.assertTrue(len(Blog.query.all())>0)
+
+
+
+
 
 
