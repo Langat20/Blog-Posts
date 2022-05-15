@@ -16,4 +16,11 @@ class SubscribedUserForm(FlaskForm):
 
 
 
+class BlogForm(FlaskForm):
+    title = StringField('Blog Title ',validators = [DataRequired()])
+    description = TextAreaField('Write your Blog ',validators=[DataRequired()])
+    # postedby = StringField('Posted By: ',validators = [DataRequired()])
+    date = DateField('Posting Date', validators=[DataRequired()])
+    submit = SubmitField('Post')
+
 
