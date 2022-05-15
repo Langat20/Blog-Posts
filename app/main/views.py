@@ -68,5 +68,17 @@ def comment():
     return render_template('commentform.html',form= form)
 
 
+@main.route('/commentview/')
+@login_required
+def viewcomment():
+
+    '''
+    View root page function that returns the index page and its data
+    '''
+    
+    comments = Comments.query.all()
+    return render_template('commentview.html', comments=comments)
+
+
 
 
