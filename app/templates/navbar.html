@@ -1,0 +1,49 @@
+
+
+
+
+
+<nav class="navbar bg-warning text-primary">
+    <div class="container-fluid">
+    
+    <!-- BRAND -->
+    <div class="navbar-header">
+    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#alignment-example" aria-expanded="false">
+    <span class="sr-only">Toggle navigation</span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="/">BlogPost</a>
+    </div>
+    
+    <!-- COLLAPSIBLE NAVBAR -->
+    <div class="collapse navbar-collapse" id="alignment-example">
+    
+    <!-- Links -->
+    <ul class="nav navbar-nav navbar-right">
+        <li><a href="{{url_for('main.homepage')}}">Blogs</a></li>
+
+        {% if current_user.is_authenticated %}
+        <li><a href="{{url_for('main.profile',uname=current_user.username)}}">Profile</a></li>
+
+        <li style="color:white;padding:15px;">{{current_user.username}}</li>
+        <li><a href="{{url_for('auth.logout')}}">Sign out</a></li>
+        {% else %}
+        <li><a href="{{url_for('auth.login')}}">Sign in</a></li>
+        {%endif%}
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">More <span class="caret"></span></a>
+            <ul class="dropdown-menu" aria-labelledby="about-us">
+            <li><a href="blog/">Add blog</a></li>
+            <li><a href="/commentform/">Add Comment</a></li>
+            <li><a href="{{url_for('main.index')}}">Subscribe</a></li>
+        </ul>
+    </ul>
+   
+    </div>
+    
+    </div>
+    </nav>
+
+    
