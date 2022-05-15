@@ -1,0 +1,33 @@
+
+{% extends 'base.html'%}
+
+{% block styles%}
+    {{ super() }}
+    <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+{% endblock %}
+
+
+{% block content %}
+<div class="container">
+    <a href="{{url_for('main.homepage')}}">Back</a>
+    
+
+
+
+    <div class="row">
+        {% for comment in comments %}
+        <div class="col-md-6">
+            <div class="thumbnail">
+                {{comment.comment}}
+                {{current_user.username}}
+                {{comment.dateposted}}
+
+                <button class="bg-danger">Delete</button>
+            </div>
+        </div>
+        {% endfor %}
+        <li style="color:white;padding:15px;">{{current_user.username}}</li>
+
+    </div>
+</div>
+{% endblock %}
