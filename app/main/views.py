@@ -3,7 +3,7 @@ from flask import abort, redirect, render_template, url_for, flash
 from app.requests import get_random_quote
 from .. import db
 from ..models import Blog, Comments, Subscribe,User
-from ..email import mail_message
+from ..mail import mail_message
 from .forms import BlogForm, CommentForm, SubscribedUserForm, UpdateBlog, UpdateProfile
 from . import main
 from flask_login import login_required
