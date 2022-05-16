@@ -28,7 +28,7 @@ class ProdConfig(Config):
             uri = uri.replace("postgres://", "postgresql://", 1)
 
         SQLALCHEMY_DATABASE_URI=uri
-
+    
 DEBUG = True
    
 
@@ -36,7 +36,7 @@ class DevConfig(Config):
     
     # SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:langat20@localhost/blogs'
 
-    DEBUG=True
+    pass
 
 config_options = {
 'development':DevConfig,
