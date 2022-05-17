@@ -6,7 +6,7 @@
 Personal blog website where I can create and share my opinions and other users can read and comment on them. Additionally, has a feature that displays random quotes to inspire my users.
 
 
-![Landing page photo](https://github.com/Langat20/Blog-Posts/blob/master/app/static/images/screen.png)
+![Landing page photo](https://github.com/Langat20/Blog-Posts/blob/master/app/static/images/Screen.png)
 
 ## BDD
 BDD focuses on how the user will interact with the application. What you will see and experience:
