@@ -1,10 +1,13 @@
 ### Blog-Posts
+
 ## Author Kipkurui Evans
 
 ## Project description
 
 Personal blog website where I can create and share my opinions and other users can read and comment on them. Additionally, has a feature that displays random quotes to inspire my users.
 
+### Live Link 
+https://pitchme-app.herokuapp.com/
 
 ![Landing page photo](https://github.com/Langat20/Blog-Posts/blob/master/app/static/images/Screen.png)
 
